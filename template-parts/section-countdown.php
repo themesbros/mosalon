@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * Landing page countdown template part.
  *
@@ -16,7 +16,7 @@ if ( 0 == absint( get_theme_mod( 'display_countdown', 1 ) ) )
 ?>
 <div id="mosalon-countdown" class="wrap">
 
-	<?php 
+	<?php
 	wp_enqueue_script( 'mosalon-countdown' );
 	$day   = (int) get_theme_mod( 'cd_day', date( 'd' ) );
 	$month = esc_attr( get_theme_mod( 'cd_month', 'Jan' ) );
@@ -25,25 +25,25 @@ if ( 0 == absint( get_theme_mod( 'display_countdown', 1 ) ) )
 	$min   = zeroise( get_theme_mod( 'cd_min', date( 'i' ) ), 2 );
 	$date  = $day . ' ' . $month . ' ' . $year . ' ' . $hour . ':' . $min;
 
-	wp_localize_script( 
-		'mosalon-custom-js', 
-		'cdVars', 
+	wp_localize_script(
+		'mosalon-custom-js',
+		'cdVars',
 		array(
 			'countDown' => true,
 			'date'      => $date,
-			'day_s'     => __( 'Day', 'mosalon' ), 
+			'day_s'     => __( 'Day', 'mosalon' ),
 			'day_m'     => __( 'Days', 'mosalon' ),
 			'hour_s'    => __( 'Hour', 'mosalon' ),
 			'hour_m'    => __( 'Hours', 'mosalon' ),
-			'min_s'     => __( 'Minute', 'mosalon' ), 
+			'min_s'     => __( 'Minute', 'mosalon' ),
 			'min_m'     => __( 'Minutes', 'mosalon' ),
-			'sec_s'     => __( 'Second', 'mosalon' ), 
-			'sec_m'     => __( 'Seconds', 'mosalon' ), 
+			'sec_s'     => __( 'Second', 'mosalon' ),
+			'sec_m'     => __( 'Seconds', 'mosalon' ),
 		)
 	);
 
  	?>
-	
+
 	<div class="ct-col text-center">
 		<span class="ct-numbers days">00</span>
 		<span class="ct-text timeRefDays"></span>
