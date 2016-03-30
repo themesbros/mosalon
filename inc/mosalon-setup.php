@@ -1,6 +1,6 @@
 <?php
 /**
- * Sets up custom filters and actions for the theme.  This does things like sets up sidebars, menus, scripts, 
+ * Sets up custom filters and actions for the theme.  This does things like sets up sidebars, menus, scripts,
  * and lots of other awesome stuff that WordPress themes do.
  */
 
@@ -48,12 +48,15 @@ add_filter( 'hybrid_attr_header', 'header_class' );
 
 /* Add class to image link. */
 add_filter( 'get_the_image', 'mosalon_add_img_class' );
- 
+
 /* Adds style for loop meta image (set through customizer). */
 add_action( 'wp_head', 'mosalon_loop_meta_img' );
 
 /* Modifies wp_page_menu. */
 add_filter( 'wp_page_menu', 'mosalon_modify_menu' );
+
+/* Custom CSS support. */
+add_action( 'wp_head', 'mosalon_custom_css' );
 
 /**
  * Registers custom image sizes for the theme.
@@ -68,12 +71,12 @@ function mosalon_register_image_sizes() {
 	set_post_thumbnail_size( 150, 150, true );
 
 	/* Front page image size. */
-	add_image_size( 'mosalon-full', 1140, 550, true );             
+	add_image_size( 'mosalon-full', 1140, 550, true );
 
 	/* Latest posts image sizes. */
-	add_image_size( 'mosalon-lp-2-widget-image', 555, 300, true );       
-	add_image_size( 'mosalon-lp-3-widget-image', 360, 250, true );       
-	add_image_size( 'mosalon-lp-4-widget-image', 260, 200, true );   	
+	add_image_size( 'mosalon-lp-2-widget-image', 555, 300, true );
+	add_image_size( 'mosalon-lp-3-widget-image', 360, 250, true );
+	add_image_size( 'mosalon-lp-4-widget-image', 260, 200, true );
 
 }
 
@@ -104,7 +107,7 @@ function mosalon_register_sidebars() {
 			'name'        => _x( 'Blog: Primary', 'sidebar', 'mosalon' ),
 			'description' => __( 'The main sidebar. It is displayed on either the left or right side of the page based on the chosen layout.', 'mosalon' )
 		)
-	);			
+	);
 
 	hybrid_register_sidebar(
 		array(
@@ -112,13 +115,13 @@ function mosalon_register_sidebars() {
 			'name'        => _x( 'Blog: Subsidiary', 'sidebar', 'mosalon' ),
 			'description' => __( 'A sidebar located in the footer of the site. Optimized for one, two, three or four widgets (and multiples thereof).', 'mosalon' )
 		)
-	);		
+	);
 
 }
 
 /**
  * Adds support for multiple theme layouts.
- * 
+ *
  * @since  1.0.2
  * @access public
  * @return void
@@ -171,39 +174,39 @@ function mosalon_enqueue_scripts() {
 	$theme_dir = trailingslashit( get_template_directory_uri() );
 	$suffix    = hybrid_get_min_suffix();
 
-	wp_register_script( 
-		'mosalon-fitvids', 
-		$theme_dir . "js/fitvids{$suffix}.js", 
-		array( 'jquery' ), 
-		null, 
-		true 
+	wp_register_script(
+		'mosalon-fitvids',
+		$theme_dir . "js/fitvids{$suffix}.js",
+		array( 'jquery' ),
+		null,
+		true
 	);
 
-	wp_register_script( 
-		'mosalon-custom-js', 
-		$theme_dir . "js/custom{$suffix}.js", 
-		array( 'jquery' ), 
-		null, 
-		true 
+	wp_register_script(
+		'mosalon-custom-js',
+		$theme_dir . "js/custom{$suffix}.js",
+		array( 'jquery' ),
+		null,
+		true
 	);
 
-	wp_enqueue_script( 'mosalon-mailchimp', 
-		$theme_dir . "js/mailchimp{$suffix}.js", 
-		array( 'jquery' ), 
-		null, 
-		true 
-	);			
+	wp_register_script( 'mosalon-mailchimp',
+		$theme_dir . "js/mailchimp{$suffix}.js",
+		array( 'jquery' ),
+		null,
+		true
+	);
 
-	wp_register_script( 
-		'mosalon-countdown', 
-		$theme_dir . "js/countdown{$suffix}.js", 
-		array( 'jquery' ), 
-		null, 
-		true 
+	wp_register_script(
+		'mosalon-countdown',
+		$theme_dir . "js/countdown{$suffix}.js",
+		array( 'jquery' ),
+		null,
+		true
 	);
 
 	wp_enqueue_script( 'mosalon-fitvids' );
-	wp_enqueue_script( 'mosalon-custom-js' );	
+	wp_enqueue_script( 'mosalon-custom-js' );
 
 }
 
@@ -215,21 +218,29 @@ function mosalon_enqueue_scripts() {
  * @return void
  */
 function mosalon_register_styles() {
-	
+
 	$suffix = hybrid_get_min_suffix();
+	$style  = is_rtl() ? 'rtl-style' : 'style';
 
 	/* Font Icon Font */
 	wp_register_style( 'font-awesome', trailingslashit( get_template_directory_uri() ) . "admin/css/font-awesome{$suffix}.css" );
 	wp_enqueue_style( 'font-awesome' );
 
-	/* Autoload parent theme stylesheet. */
-	if ( is_child_theme() )
-		wp_enqueue_style( 'parent', trailingslashit( get_template_directory_uri() ) . "style{$suffix}.css" );
+	$style_url = trailingslashit( get_template_directory_uri() ) . "{$style}{$suffix}.css";
 
-	/* Load main stylesheet. */
-	wp_enqueue_style( 'style', get_stylesheet_uri() );		
+	if ( ! file_exists( $style_url ) )
+		$style_url = trailingslashit( get_template_directory_uri() ) . "{$style}.css";
+
+	/* Load parent theme stylesheet. */
+	wp_register_style( 'style', $style_url );
+	wp_enqueue_style ( 'style' );
+
+	/* Autoload child theme stylesheet. */
+	if ( is_child_theme() )
+		wp_enqueue_style( 'child', get_stylesheet_uri() );
+
 }
- 
+
 
 /**
  * Adds a custom excerpt length.
@@ -247,19 +258,19 @@ function mosalon_excerpt_length( $length ) {
  * Disables read more link ([...]) in excerpt.
  * @since 1.0.0
  * @access public
- * @param  string 	$more 
- * @return string     
+ * @param  string 	$more
+ * @return string
  */
 function mosalon_read_more( $more ) {
-	return '...';	
+	return '...';
 }
 
 /**
- * Adds a custom class to the 'subsidiary' sidebar.  This is used to determine the number of columns used to 
+ * Adds a custom class to the 'subsidiary' sidebar.  This is used to determine the number of columns used to
  * display the sidebar's widgets.  This optimizes for 1, 2, 3 and 4 columns or multiples of those values.
  *
- * Note that we're using the global $sidebars_widgets variable here. This is because core has marked 
- * wp_get_sidebars_widgets() as a private function. Therefore, this leaves us with $sidebars_widgets for 
+ * Note that we're using the global $sidebars_widgets variable here. This is because core has marked
+ * wp_get_sidebars_widgets() as a private function. Therefore, this leaves us with $sidebars_widgets for
  * figuring out the widget count.
  * @link http://codex.wordpress.org/Function_Reference/wp_get_sidebars_widgets
  *
@@ -272,22 +283,22 @@ function mosalon_read_more( $more ) {
 function mosalon_sidebar_subsidiary_class( $attr, $context ) {
 
 	if ( 'subsidiary' === $context ) {
-		
+
 		global $sidebars_widgets;
 
 		if ( is_array( $sidebars_widgets ) && !empty( $sidebars_widgets[ $context ] ) ) {
 
 			$count = count( $sidebars_widgets[ $context ] );
-			
+
 			if ( ( $count == 4 ) || $count > 4 )
 				$attr['class'] .= ' sidebar-cols-4';
-				
+
 			elseif ( !( $count % 3 ) )
-				$attr['class'] .= ' sidebar-cols-3';				
+				$attr['class'] .= ' sidebar-cols-3';
 
 			elseif ( !( $count % 2 ) )
 				$attr['class'] .= ' sidebar-cols-2';
-			
+
 			else
 				$attr['class'] .= ' sidebar-cols-1';
 
@@ -296,15 +307,15 @@ function mosalon_sidebar_subsidiary_class( $attr, $context ) {
 
 	return $attr;
 }
- 
+
 
 /**
  * Disables comments allowed tags below comment textarea.
- * 
+ *
  * @since 1.0.0
  * @access public
- * @param  array $defaults 
- * @return array           
+ * @param  array $defaults
+ * @return array
  */
 function remove_comment_form_allowed_tags( $defaults ) {
 	$defaults['comment_notes_after'] = '';
@@ -312,16 +323,16 @@ function remove_comment_form_allowed_tags( $defaults ) {
 }
 
 /**
- * Set's logo, replaces site title. 
+ * Set's logo, replaces site title.
  * @since 1.0.0
  * @access public
- * @param  string 	$title 
+ * @param  string 	$title
  * @return string
  */
 function mosalon_logo( $title ) {
 
 	$logo = get_theme_mod( 'logo', trailingslashit( get_template_directory_uri() ) . 'images/logo.png' );
-	
+
 	if ( ! empty( $logo ) ) {
 		$alt   = get_bloginfo( 'name' );
 		$img   = '<img src="'. esc_url( $logo ) .'" alt="'. esc_attr( $alt ) .'" />';
@@ -333,10 +344,10 @@ function mosalon_logo( $title ) {
 
 /**
  * Shows / hides site tagline.
- * 
- * @since 1.0.0 
+ *
+ * @since 1.0.0
  * @access public
- * @param  string 	$tagline 
+ * @param  string 	$tagline
  * @return string|bool
  */
 function mosalon_site_tagline_toggle( $tagline ) {
@@ -349,7 +360,7 @@ function mosalon_site_tagline_toggle( $tagline ) {
  *
  * @since  1.0.0
  * @access public
- * @param array $attr 
+ * @param array $attr
  * @return array
  */
 function header_class( $attr ) {
@@ -359,9 +370,9 @@ function header_class( $attr ) {
 
 /**
  * Adds .mosalon-thumbnail class to image link.
- * 
+ *
  * @since 1.0.0
- * @access public 
+ * @access public
  * @param  string 	$image
  * @return string
  */
@@ -372,8 +383,8 @@ function mosalon_add_img_class( $image ) {
 
 /**
  * Backward compatibility for title tag.
- * 
- * @since 1.0.0 
+ *
+ * @since 1.0.0
  * @access public
  */
 if ( ! function_exists( '_wp_render_title_tag' ) ) {
@@ -393,8 +404,8 @@ if ( ! function_exists( '_wp_render_title_tag' ) ) {
 function mosalon_loop_meta_img() {
 
 	$img = get_theme_mod( 'loop_img', trailingslashit( get_template_directory_uri() ) . 'images/sep.png' );
-	
-	if ( empty( $img ) ) 
+
+	if ( empty( $img ) )
 		return;
 
 	$opacity = get_theme_mod( 'loop_opacity', 0.4 );
@@ -409,8 +420,8 @@ function mosalon_loop_meta_img() {
 }
 
 /**
- * Adds id "menu-primary-items" to <ul>. 
- * 
+ * Adds id "menu-primary-items" to <ul>.
+ *
  * @since  1.0.0
  * @param  $menu
  * @return string
@@ -421,10 +432,10 @@ function mosalon_modify_menu( $menu ) {
 
 /**
  * Checks if it's landing page template used on current page.
- * 
+ *
  * @since  1.0.0
  * @access public
- * @return boolean 
+ * @return boolean
  */
 function is_mosalon_landing_page() {
 	return is_page_template( 'template-landing-page.php' ) ? true : false;
@@ -433,10 +444,10 @@ function is_mosalon_landing_page() {
 /**
  * Checks whether to show primary sidebar. Sidebar will be shown only if it's not landing page template,
  * and not 1 column layout.
- * 
+ *
  * @since  1.0.0
  * @access public
- * @return boolean 
+ * @return boolean
  */
 function mosalon_show_sidebar() {
 
@@ -445,38 +456,75 @@ function mosalon_show_sidebar() {
 	if ( is_singular() ) {
 		$single_layout = esc_html( hybrid_get_post_layout( get_the_ID() ) );
 		return $single_layout == '1c' || is_mosalon_landing_page() ? false : true;
-	} 
-	else return $global_layout == '1c' ? false : true; 
+	}
+	else return $global_layout == '1c' ? false : true;
+}
+
+/**
+ * Adds custom CSS to head.
+ * @since  1.1.0
+ * @return void
+ */
+function mosalon_custom_css() {
+
+	$custom_css = get_theme_mod( 'mosalon_custom_css' );
+	if ( empty( $custom_css ) )
+		return;
+	else
+		echo '<style>' . $custom_css . '</style>';
 }
 
 /**
  * WP callback for adding subscribers to MailChimp.
- * 
+ *
  * @since  1.0.0
- * @return boolean 
+ * @return boolean
  */
 add_action( 'wp_ajax_add_to_mailchimp_list', 'add_to_mailchimp_list' );
-add_action( 'wp_ajax_nopriv_add_to_mailchimp_list', 'add_to_mailchimp_list' );		
+add_action( 'wp_ajax_nopriv_add_to_mailchimp_list', 'add_to_mailchimp_list' );
 
 function add_to_mailchimp_list() {
 
 	check_ajax_referer( 'MailChimp', 'ajax_nonce' );
-	$_POST = array_map( 'stripslashes_deep', $_POST );
+
+	$result = mosalon_mailchimp_subscribe();
+
+	if ( is_array( $result ) )
+		echo 'added';
+	else
+		echo 'invalid email';
+
+	wp_die();
+}
+
+/* PHP fallback for subscription if Javascript is off in browser. */
+add_action( 'init', 'mosalon_mailchimp_subscribe' );
+
+/**
+ * Subscribes user to Mailchimp with PHP if Javascript is off in browser.
+ *
+ * @since  1.1
+ * @return array | boolean
+ */
+function mosalon_mailchimp_subscribe() {
+
+	if ( ! isset( $_POST['email'] ) )
+		return;
 
 	$email = sanitize_email( $_POST['email'] );
-	
+
 	if ( is_email( $email ) ) {
-		
+
 		$fname = esc_attr( $_POST['fname'] );
 		$lname = esc_attr( $_POST['lname'] );
-		
-		$vars = array(); 
 
-		if ( ! empty( $fname ) ) 
+		$vars = array();
+
+		if ( ! empty( $fname ) )
 			$vars['FNAME'] = $fname;
 
-		if ( ! empty( $lname ) ) 
-			$vars['LNAME'] = $lname;		
+		if ( ! empty( $lname ) )
+			$vars['LNAME'] = $lname;
 
 		$api_key      = esc_attr( get_theme_mod( 'nl_api_key' ) );
 		$list_id      = esc_attr( get_theme_mod( 'nl_selected_list' ) );
@@ -493,14 +541,8 @@ function add_to_mailchimp_list() {
 						'double_optin'      => $double_optin,
 						'update_existing'   => true,
 						'replace_interests' => false,
-						));		
-							
-		if ( is_array( $result ) ) 
-			echo 'added';
-	} 
-	else {
-		echo 'invalid email';
+						));
+		return $result;
 	}
-		
-	wp_die();
+	return false;
 }

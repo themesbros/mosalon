@@ -1,5 +1,5 @@
 jQuery( document ).ready( function($) {
-	
+
 	/*==== RESPONSIVE PRIMARY MENU SETUP ====*/
 	if ( $( '#menu-primary-items' ).length ) {
 		$('#toggle-primary-menu').click(function(){
@@ -8,7 +8,7 @@ jQuery( document ).ready( function($) {
 	}
 
 	/* ===== FITVIDS ===== */
-	$('#content').fitVids({ customSelector: "iframe[src*='wordpress.tv'], iframe[src*='www.dailymotion.com'], iframe[src*='blip.tv'], iframe[src*='www.viddler.com']"});	
+	$('#content').fitVids({ customSelector: "iframe[src*='wordpress.tv'], iframe[src*='www.dailymotion.com'], iframe[src*='blip.tv'], iframe[src*='www.viddler.com']"});
 
 	if ( typeof cdVars !== "undefined" ) { /* Check if countdown widget is active. */
 		$( '#mosalon-countdown' ).countdown({
@@ -20,8 +20,8 @@ jQuery( document ).ready( function($) {
 		    min_s: cdVars.min_s,
 		    min_m: cdVars.min_m,
 		    sec_s: cdVars.sec_s,
-		    sec_m: cdVars.sec_m			
-		});		
+		    sec_m: cdVars.sec_m
+		});
 	}
 
 });

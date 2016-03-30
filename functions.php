@@ -26,8 +26,8 @@ function mosalon_theme_setup() {
 
 	/* Load files. */
 	require_once( $theme_dir . 'inc/mosalon-setup.php' );
-	require_once( $theme_dir . 'inc/mosalon-customizer-setup.php' );	
-	 
+	require_once( $theme_dir . 'inc/mosalon-customizer-setup.php' );
+
 	/* Theme layouts. */
 	add_theme_support( 'theme-layouts', array( 'default' => '2c-l' ) );
 
@@ -38,6 +38,8 @@ function mosalon_theme_setup() {
 	add_theme_support( 'automatic-feed-links' );
 
 	/* From wp 4.1 support for title tag. */
-	add_theme_support( 'title-tag' );	
+	add_theme_support( 'title-tag' );
 
+	/* Add support for Woocommerce. */
+	add_theme_support( 'woocommerce' );
 }
