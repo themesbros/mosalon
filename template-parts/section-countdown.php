@@ -14,6 +14,7 @@
 if ( 0 == absint( get_theme_mod( 'display_countdown', 1 ) ) )
 	return;
 ?>
+
 <div id="mosalon-countdown" class="wrap">
 
 	<?php

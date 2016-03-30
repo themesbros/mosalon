@@ -55,6 +55,9 @@ add_action( 'wp_head', 'mosalon_loop_meta_img' );
 /* Modifies wp_page_menu. */
 add_filter( 'wp_page_menu', 'mosalon_modify_menu' );
 
+/* Custom CSS support. */
+add_action( 'wp_head', 'mosalon_custom_css' );
+
 /**
  * Registers custom image sizes for the theme.
  *
@@ -187,7 +190,7 @@ function mosalon_enqueue_scripts() {
 		true
 	);
 
-	wp_enqueue_script( 'mosalon-mailchimp',
+	wp_register_script( 'mosalon-mailchimp',
 		$theme_dir . "js/mailchimp{$suffix}.js",
 		array( 'jquery' ),
 		null,
@@ -217,17 +220,25 @@ function mosalon_enqueue_scripts() {
 function mosalon_register_styles() {
 
 	$suffix = hybrid_get_min_suffix();
+	$style  = is_rtl() ? 'rtl-style' : 'style';
 
 	/* Font Icon Font */
 	wp_register_style( 'font-awesome', trailingslashit( get_template_directory_uri() ) . "admin/css/font-awesome{$suffix}.css" );
 	wp_enqueue_style( 'font-awesome' );
 
-	/* Autoload parent theme stylesheet. */
-	if ( is_child_theme() )
-		wp_enqueue_style( 'parent', trailingslashit( get_template_directory_uri() ) . "style{$suffix}.css" );
+	$style_url = trailingslashit( get_template_directory_uri() ) . "{$style}{$suffix}.css";
 
-	/* Load main stylesheet. */
-	wp_enqueue_style( 'style', get_stylesheet_uri() );
+	if ( ! file_exists( $style_url ) )
+		$style_url = trailingslashit( get_template_directory_uri() ) . "{$style}.css";
+
+	/* Load parent theme stylesheet. */
+	wp_register_style( 'style', $style_url );
+	wp_enqueue_style ( 'style' );
+
+	/* Autoload child theme stylesheet. */
+	if ( is_child_theme() )
+		wp_enqueue_style( 'child', get_stylesheet_uri() );
+
 }
 
 
@@ -447,6 +458,20 @@ function mosalon_show_sidebar() {
 		return $single_layout == '1c' || is_mosalon_landing_page() ? false : true;
 	}
 	else return $global_layout == '1c' ? false : true;
+}
+
+/**
+ * Adds custom CSS to head.
+ * @since  1.1.0
+ * @return void
+ */
+function mosalon_custom_css() {
+
+	$custom_css = get_theme_mod( 'mosalon_custom_css' );
+	if ( empty( $custom_css ) )
+		return;
+	else
+		echo '<style>' . $custom_css . '</style>';
 }
 
 /**

@@ -127,6 +127,23 @@ function mosalon_customizer_options( $wp_customize ) {
 		'settings' => 'loop_opacity',
 	) );
 
+	$wp_customize->add_section( 'custom_css', array(
+		'title'	=> __( 'Custom CSS', 'mosalon' ),
+		'panel' => 'mosalon_general',
+	) );
+
+	$wp_customize->add_setting( 'mosalon_custom_css', array(
+		'default'           => '',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_control( 'mosalon_custom_css', array(
+		'label'       => __( 'Custom CSS', 'mosalon' ),
+		'description' => __( 'Enter custom CSS styles', 'mosalon' ),
+		'type'        => 'textarea',
+		'section'     => 'custom_css',
+	) );
+
 	/*=========================================
 	=      		PANEL: Landing Page     	  =
 	=========================================*/
@@ -192,12 +209,12 @@ function mosalon_customizer_options( $wp_customize ) {
 	$lists   = array( 'empty' => __( "Please enter API key and refresh  the page.", 'mosalon' ) ); // User created mailchimp lists.
 	$api_key = get_theme_mod( 'nl_api_key' ) != '' ? esc_attr( get_theme_mod( 'nl_api_key' ) ) : '';
 
-	if ( ! empty( $api_key ) ) {	
+	if ( ! empty( $api_key ) ) {
 		/* Load Mailchimp API. */
-		require_once( trailingslashit( get_template_directory() ) .'inc/mailchimp.php' );			
+		require_once( trailingslashit( get_template_directory() ) .'inc/mailchimp.php' );
 		$mc    = new Mosalon_Mailchimp_API( $api_key );
 		$lists = $mc->get_lists();
-		if ( !is_array( $lists ) ) 
+		if ( !is_array( $lists ) )
 			$lists = array( 'empty' => __( "Please enter API key and refresh the page.", 'mosalon' ) ); // User created mailchimp lists.
 	}
 
@@ -249,7 +266,7 @@ function mosalon_customizer_options( $wp_customize ) {
 	$wp_customize->add_setting( 'doptin', array(
 		'default'           => 1,
 		'sanitize_callback' => 'mosalon_sanitize_checkbox'
-	) );	
+	) );
 
 	$wp_customize->add_control( 'doptin', array(
 		'type'        => 'checkbox',
@@ -270,6 +287,35 @@ function mosalon_customizer_options( $wp_customize ) {
 		'section'     => 'section_newsletter',
 	) );
 
+	$wp_customize->add_setting( 'newsletter_shortcode', array(
+		'default'           => '',
+		'sanitize_callback' => 'mosalon_sanitize_textarea',
+	) );
+
+	$wp_customize->add_control( 'newsletter_shortcode', array(
+		'type' 				=> 'textarea',
+		'label'       => __( 'Custom Form', 'mosalon' ),
+		'description' => __( "You don't have to use default form for subscription, you can add custom shortcode from a plugin here, or custom HTML, and theme will use it instead of default form. To use default form, leave this field blank.", 'mosalon' ),
+		'section'     => 'section_newsletter',
+		'settings'    => 'newsletter_shortcode',
+	) );
+
+	$wp_customize->add_setting( 'newsletter_custom_type', array(
+		'default'           => 'html',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_control( 'newsletter_custom_type', array(
+		'type'    => 'radio',
+		'label'   => __( 'Custom Form Type', 'mosalon' ),
+		'description' => __( "Select what type of form you're using.", 'mosalon' ),
+		'section' => 'section_newsletter',
+	    'choices' => array(
+			'html'      => __( 'Custom HTML & JS', 'mosalon' ),
+			'shortcode' => __( 'Shortcode', 'mosalon' ),
+	    )
+	) );
+
 	/*=====  Section Countdown  ======*/
 
 	$wp_customize->add_section( 'section_countdown', array(
@@ -288,7 +334,7 @@ function mosalon_customizer_options( $wp_customize ) {
 		'type'     => 'checkbox',
 		'section'  => 'section_countdown',
 		'settings' => 'display_countdown',
-	) );        
+	) );
 
 	$wp_customize->add_setting( 'cd_month', array(
 		'default'           => 'Jan',
@@ -376,7 +422,7 @@ function mosalon_customizer_options( $wp_customize ) {
 		'type'     => 'checkbox',
 		'section'  => 'section_video',
 		'settings' => 'display_video',
-	) );    
+	) );
 
 	$wp_customize->add_setting( 'video_title', array(
 		'default'           => __( 'Watch the video', 'mosalon' ),
@@ -428,7 +474,7 @@ function mosalon_customizer_options( $wp_customize ) {
 		'type'     => 'checkbox',
 		'section'  => 'section_featured_items',
 		'settings' => 'display_featured',
-	) );    
+	) );
 
 	$wp_customize->add_setting( 'featured_items_title', array(
 		'default'           => __( 'Important Feature Points', 'mosalon' ),
@@ -494,7 +540,7 @@ function mosalon_customizer_options( $wp_customize ) {
 		'fa-thumb-tack',
 		'fa-unlock-alt',
 		'fa-bell-o'
-	);    
+	);
 
 	$sizes = array( '', 80, 80, 73, 80, 76, 68 );
 
@@ -510,7 +556,7 @@ function mosalon_customizer_options( $wp_customize ) {
 			'section' => 'section_featured_items',
 			'type'    => 'select',
 			'choices' => $list
-		) );	
+		) );
 
 		$wp_customize->add_setting( "featured_icon_size_{$i}", array(
 			'default'           => $sizes[$i],
@@ -521,7 +567,7 @@ function mosalon_customizer_options( $wp_customize ) {
 			'label'   => __( 'Font Size', 'mosalon' ) . ' ' . $i,
 			'type'    => 'number',
 			'section' => 'section_featured_items',
-		) );    	
+		) );
 
 		$wp_customize->add_setting( "featured_items_title_{$i}", array(
 			'default'           => __( 'Very Important Feature Point', 'mosalon' ),
@@ -564,7 +610,7 @@ function mosalon_customizer_options( $wp_customize ) {
 		'type'     => 'checkbox',
 		'section'  => 'section_cta',
 		'settings' => 'display_cta_wide',
-	) );      
+	) );
 
 	$wp_customize->add_setting( 'cta_title', array(
 		'default'           => __( 'And much more features! Buy product now!', 'mosalon' ),
@@ -616,7 +662,7 @@ function mosalon_customizer_options( $wp_customize ) {
 		'title' => __( 'Latest News', 'mosalon' ),
 		'panel' => 'mosalon_front_page',
     ) );
-    
+
 	$wp_customize->add_setting( 'display_lp', array(
 		'default'           => 1,
 		'sanitize_callback' => 'mosalon_sanitize_checkbox'
@@ -627,7 +673,7 @@ function mosalon_customizer_options( $wp_customize ) {
 		'type'     => 'checkbox',
 		'section'  => 'section_latest_posts',
 		'settings' => 'display_lp',
-	) );    
+	) );
 
 	$wp_customize->add_setting( 'latest_posts_title', array(
 		'default'           => __( 'Latest Posts', 'mosalon' ),
@@ -660,7 +706,7 @@ function mosalon_customizer_options( $wp_customize ) {
 		'label'    => __( 'Number of posts to show', 'mosalon' ),
 		'section'  => 'section_latest_posts',
 		'settings' => 'latest_posts_number',
-	) );	
+	) );
 
 	$wp_customize->add_setting( 'latest_posts_cats', array(
 		'default'           => 1,
@@ -685,7 +731,7 @@ function mosalon_customizer_options( $wp_customize ) {
 		'type'     => 'checkbox',
 		'section'  => 'section_latest_posts',
 		'settings' => 'latest_post_image',
-	) );    
+	) );
 
  	$wp_customize->add_setting( 'latest_posts_length', array(
 		'default'           => 22,
@@ -696,7 +742,7 @@ function mosalon_customizer_options( $wp_customize ) {
 		'label'    => __( 'Number of words to show:', 'mosalon' ),
 		'section'  => 'section_latest_posts',
 		'settings' => 'latest_posts_length',
-	) );		
+	) );
 
 	$wp_customize->add_setting( 'latest_post_columns', array(
 		'default'           => 2,
@@ -714,7 +760,7 @@ function mosalon_customizer_options( $wp_customize ) {
 			3 => 3,
 			4 => 4,
         ),
-    ) );	
+    ) );
 
 	/*=====  Section CTA Centered ======*/
 
@@ -733,7 +779,7 @@ function mosalon_customizer_options( $wp_customize ) {
 		'type'     => 'checkbox',
 		'section'  => 'section_cta_centered',
 		'settings' => 'display_cta_centered',
-	) );        
+	) );
 
 	$wp_customize->add_setting( 'cta_centered_title', array(
 		'default'           => __( 'Want to get a Free Course Preview?', 'mosalon' ),
@@ -789,13 +835,13 @@ function mosalon_customizer_options( $wp_customize ) {
 	$wp_customize->add_setting( 'display_sidebar', array(
 		'default'           => 1,
 		'sanitize_callback' => 'mosalon_sanitize_checkbox'
-	) );	
+	) );
 
 	$wp_customize->add_control( 'display_sidebar', array(
 		'type'    => 'checkbox',
 		'label'   => __( 'Display subsidiary sidebar on landing page?', 'mosalon' ),
 		'section' => 'section_ordering',
-    ) );    
+    ) );
 
     $sections = array(
 		'top-cta'      => __( 'Checklist & Newsletter', 'mosalon' ),
@@ -807,14 +853,14 @@ function mosalon_customizer_options( $wp_customize ) {
 		'cta-centered' => __( 'Call To Action (Centered)', 'mosalon' ),
 	);
 
-    $i = 0; 
+    $i = 0;
 
     foreach( $sections as $key => $value ) {
 
 		$wp_customize->add_setting( "section_{$i}", array(
 			'default'           => $key,
 			'sanitize_callback' => 'sanitize_text_field',
-	    ) );	
+	    ) );
 
 	    $number = $i + 1;
 
@@ -886,7 +932,7 @@ function mosalon_customizer_scripts() {
 
 	$customizer_strings = array(
 		'support' => __( 'Support Forum', 'mosalon' ),
-		'review'  => __( 'Leave a review (it will help us)', 'mosalon' )
+		'review'  => __( 'Rate Us!', 'mosalon' )
 	);
 
 	wp_localize_script( 'mosalon-customizer-links', 'mc', $customizer_strings );
