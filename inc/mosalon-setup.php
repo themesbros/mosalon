@@ -58,6 +58,9 @@ add_filter( 'wp_page_menu', 'mosalon_modify_menu' );
 /* Custom CSS support. */
 add_action( 'wp_head', 'mosalon_custom_css' );
 
+/* Mosalon body classes (fixes and extras). */
+add_filter( 'body_class', 'mosalon_body_classes' );
+
 /**
  * Registers custom image sizes for the theme.
  *
@@ -239,6 +242,7 @@ function mosalon_register_styles() {
 	if ( is_child_theme() )
 		wp_enqueue_style( 'child', get_stylesheet_uri() );
 
+	wp_dequeue_style( 'tribe-events-calendar-style-css' );
 }
 
 
@@ -458,6 +462,26 @@ function mosalon_show_sidebar() {
 		return $single_layout == '1c' || is_mosalon_landing_page() ? false : true;
 	}
 	else return $global_layout == '1c' ? false : true;
+}
+
+/**
+ * All classes starting with "single-" are overriden to "singular-" by Hybrid Core.
+ * Function adds "single" and "single-post_type" class in addition to Hybrid Core's "singular-post_type".
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  array 	$classes
+ * @return array
+ */
+function mosalon_body_classes( $classes ) {
+
+	if ( is_singular() ) {
+		$object    = get_queried_object();
+		$classes[] = 'single';
+		$classes[] = "single-{$object->post_type}";
+	}
+
+	return $classes;
 }
 
 /**
