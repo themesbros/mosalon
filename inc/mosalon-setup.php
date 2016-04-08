@@ -223,16 +223,13 @@ function mosalon_enqueue_scripts() {
 function mosalon_register_styles() {
 
 	$suffix = hybrid_get_min_suffix();
-	$style  = is_rtl() ? 'rtl-style' : 'style';
+	$style  = is_rtl() ? 'rtl' : 'style';
 
 	/* Font Icon Font */
 	wp_register_style( 'font-awesome', trailingslashit( get_template_directory_uri() ) . "admin/css/font-awesome{$suffix}.css" );
 	wp_enqueue_style( 'font-awesome' );
 
 	$style_url = trailingslashit( get_template_directory_uri() ) . "{$style}{$suffix}.css";
-
-	if ( ! file_exists( $style_url ) )
-		$style_url = trailingslashit( get_template_directory_uri() ) . "{$style}.css";
 
 	/* Load parent theme stylesheet. */
 	wp_register_style( 'style', $style_url );

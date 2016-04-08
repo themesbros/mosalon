@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.1.2] - 2016-04-08
+
+### Fixed
+
+* CSS fixes (git bug + rtl.css fixes)
+
 ## [1.1.0] - 2016-03-30
 
 ### Added

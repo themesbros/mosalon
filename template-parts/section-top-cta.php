@@ -26,11 +26,16 @@
 
 			<?php if ( $text ) : ?>
 
-		  		<ul class="fa-ul no-margin">
+		  		<ul class="no-margin">
 
 		  		<?php foreach( $lines as $line ) : ?>
 
-					<li><?php echo esc_html( $line ); ?></li>
+					<li>
+						<p>
+							<i class="fa fa-check-square"></i>
+							<span><?php echo esc_html( $line ); ?></span>
+						</p>
+					</li>
 
 		  		<?php endforeach; ?>
 
