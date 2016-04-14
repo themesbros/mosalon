@@ -2,7 +2,7 @@
 
 	<div <?php hybrid_attr( 'loop-meta' ); ?>>
 
-		<?php $img = get_theme_mod( 'loop_img', trailingslashit( get_template_directory_uri() ) . 'images/sep.png' ); ?>
+		<?php $img = esc_url( get_theme_mod( 'loop_img', trailingslashit( get_template_directory_uri() ) . 'images/sep.png' ) ); ?>
 
 		<?php if ( ! empty( $img ) ) : ?>
 			<div class="loop-img"></div>
@@ -10,15 +10,15 @@
 
 		<?php if ( is_front_page() || is_page() ) :
 			$title = get_theme_mod( 'loop_title_page', __( 'Company Info', 'mosalon' ) );
-			$desc  = '<p>' . get_theme_mod( 'loop_subtitle_page', __( 'Company slogan', 'mosalon' ) ) . '</p>';
+			$desc  = get_theme_mod( 'loop_subtitle_page', __( 'Company slogan', 'mosalon' ) );
 
 		elseif ( is_home() || is_singular() ) :
 			$title =  get_theme_mod( 'loop_title', __( 'From the blog', 'mosalon' ) );
-			$desc  = '<p>' . get_theme_mod( 'loop_subtitle', __( 'Latest posts from our blog', 'mosalon' ) ) . '</p>';
+			$desc  = get_theme_mod( 'loop_subtitle', __( 'Latest posts from our blog', 'mosalon' ) );
 
 		elseif ( is_404() ) :
 			$title = __( 'Nothing Found', 'mosalon' );
-			$desc  = '<p>'. __( 'Apologies, but no entries were found.', 'mosalon' ) . '</p>';
+			$desc  = __( 'Apologies, but no entries were found.', 'mosalon' );
 
 		else :
 			$title = esc_attr( get_the_archive_title() );
@@ -28,23 +28,27 @@
 				// If there's no category description.
 				if ( is_category() ) {
 					$text = __( 'You are browsing the category', 'mosalon' );
-					$desc = '<p>' . $text . ' '. $title . '.</p>';
+					$desc = $text . ' '. esc_html( $title );
 				}
 
 				if ( is_author() )
-					$desc = '<p>' . __( 'All posts by this author page' , 'mosalon' ) . '</p>';
+					$desc = __( 'All posts by this author page' , 'mosalon' );
 
 				if ( is_tag() )
-					$desc = '<p>' . __( 'You are browsing posts tagged with' , 'mosalon' ) . ' ' . $title . '.</p>';
+					$desc = __( 'You are browsing posts tagged with' , 'mosalon' ) . ' ' . esc_html( $title ) . '.';
 			}
 
 		endif; ?>
 
-		<h1 <?php hybrid_attr( 'loop-title' ); ?>><?php echo $title; ?></h1>
+		<?php if ( $title ) : ?>
+			<h1 <?php hybrid_attr( 'loop-title' ); ?>><?php echo esc_html( $title ); ?></h1>
+		<?php endif; ?>
 
-		<div <?php hybrid_attr( 'loop-description' ); ?>>
-			<?php echo $desc; ?>
-		</div><!-- .loop-description -->
+		<?php if ( $desc ) : ?>
+			<div <?php hybrid_attr( 'loop-description' ); ?>>
+				<p><?php echo $desc; ?></p>
+			</div><!-- .loop-description -->
+		<?php endif; ?>
 
 	</div><!-- .loop-meta -->
 
