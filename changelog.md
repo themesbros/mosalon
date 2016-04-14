@@ -1,10 +1,17 @@
 # Change Log
 
+## [1.1.3] - 2016-04-14
+
+### Added
+
+* content/page.php template for pages (without author, date, comments number).
+* Customizer options for separator title and subtitle on pages.
+
 ## [1.1.2] - 2016-04-08
 
 ### Fixed
 
-* CSS fixes (git bug + rtl.css fixes)
+* CSS fixes (git bug + rtl.css fixes).
 
 ## [1.1.0] - 2016-03-30
 
