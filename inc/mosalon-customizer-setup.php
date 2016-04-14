@@ -95,9 +95,31 @@ function mosalon_customizer_options( $wp_customize ) {
 	) );
 
 	$wp_customize->add_control( 'loop_subtitle', array(
-		'label'    => __( 'Separator Title', 'mosalon' ),
+		'label'    => __( 'Separator Subtitle', 'mosalon' ),
 		'section'  => 'section_separator',
 		'settings' => 'loop_subtitle',
+	) );
+
+	$wp_customize->add_setting( 'loop_title_page', array(
+		'default'           => __( 'Company Info', 'mosalon' ),
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_control( 'loop_title_page', array(
+		'label'    => __( 'Separator Title (page)', 'mosalon' ),
+		'section'  => 'section_separator',
+		'settings' => 'loop_title_page',
+	) );
+
+	$wp_customize->add_setting( 'loop_subtitle_page', array(
+		'default'           => __( 'Company slogan', 'mosalon' ),
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+
+	$wp_customize->add_control( 'loop_subtitle_page', array(
+		'label'    => __( 'Separator Subtitle (page)', 'mosalon' ),
+		'section'  => 'section_separator',
+		'settings' => 'loop_subtitle_page',
 	) );
 
 	$wp_customize->add_setting( 'loop_img', array(
@@ -881,11 +903,13 @@ function mosalon_customizer_options( $wp_customize ) {
 	add_action( 'customize_controls_enqueue_scripts', 'mosalon_customizer_scripts' );
 
 	/* Enable live preview for WordPress theme features. */
-	$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-	$wp_customize->get_setting( 'loop_title' )->transport      = 'postMessage';
-	$wp_customize->get_setting( 'loop_subtitle' )->transport   = 'postMessage';
-	$wp_customize->get_setting( 'loop_opacity' )->transport    = 'postMessage';
+	$wp_customize->get_setting( 'blogname' )->transport           = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport    = 'postMessage';
+	$wp_customize->get_setting( 'loop_title' )->transport         = 'postMessage';
+	$wp_customize->get_setting( 'loop_subtitle' )->transport      = 'postMessage';
+	$wp_customize->get_setting( 'loop_title_page' )->transport    = 'postMessage';
+	$wp_customize->get_setting( 'loop_subtitle_page' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'loop_opacity' )->transport       = 'postMessage';
 }
 
 
@@ -903,7 +927,7 @@ function mosalon_enqueue_customizer_scripts() {
 
 	wp_enqueue_script(
 		'mosalon-customize',
-		trailingslashit( get_template_directory_uri() ) . "js/theme-customizer{$suffix}.js",
+		trailingslashit( get_template_directory_uri() ) . "js/theme-customizer{$suffix}.js?ver=1.1",
 		array( 'jquery' ),
 		null,
 		true
