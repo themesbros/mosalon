@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Mosalon 1.0\n"
-"POT-Creation-Date: 2016-03-30 15:26+0100\n"
-"PO-Revision-Date: 2016-03-30 15:26+0100\n"
+"POT-Creation-Date: 2016-04-14 10:57+0100\n"
+"PO-Revision-Date: 2016-04-14 10:57+0100\n"
 "Last-Translator: Themesbros <contact@themesbros.com>\n"
 "Language-Team: ThemesBros <support@themesbros.com>\n"
 "Language: en\n"
@@ -29,27 +29,27 @@ msgstr ""
 msgid "Please %screate list%s in order to continue."
 msgstr ""
 
-#: ../inc/mosalon-setup.php:108
+#: ../inc/mosalon-setup.php:111
 msgid ""
 "The main sidebar. It is displayed on either the left or right side of the "
 "page based on the chosen layout."
 msgstr ""
 
-#: ../inc/mosalon-setup.php:116
+#: ../inc/mosalon-setup.php:119
 msgid ""
 "A sidebar located in the footer of the site. Optimized for one, two, three "
 "or four widgets (and multiples thereof)."
 msgstr ""
 
-#: ../inc/mosalon-setup.php:136
+#: ../inc/mosalon-setup.php:139
 msgid "2 Columns: Content / Sidebar"
 msgstr ""
 
-#: ../inc/mosalon-setup.php:146
+#: ../inc/mosalon-setup.php:149
 msgid "2 Columns: Sidebar / Content"
 msgstr ""
 
-#: ../inc/mosalon-setup.php:156
+#: ../inc/mosalon-setup.php:159
 msgid "1 Column"
 msgstr ""
 
@@ -81,41 +81,60 @@ msgstr ""
 msgid "Separator Options"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:82 ../misc/loop-meta.php:12
+#: ../inc/mosalon-customizer-setup.php:82 ../misc/loop-meta.php:16
 msgid "From the blog"
 msgstr ""
 
 #: ../inc/mosalon-customizer-setup.php:87
-#: ../inc/mosalon-customizer-setup.php:98
 msgid "Separator Title"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:93 ../misc/loop-meta.php:13
+#: ../inc/mosalon-customizer-setup.php:93 ../misc/loop-meta.php:17
 msgid "Latest posts from our blog"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:113
+#: ../inc/mosalon-customizer-setup.php:98
+msgid "Separator Subtitle"
+msgstr ""
+
+#: ../inc/mosalon-customizer-setup.php:104 ../misc/loop-meta.php:12
+msgid "Company Info"
+msgstr ""
+
+#: ../inc/mosalon-customizer-setup.php:109
+msgid "Separator Title (page)"
+msgstr ""
+
+#: ../inc/mosalon-customizer-setup.php:115 ../misc/loop-meta.php:13
+msgid "Company slogan"
+msgstr ""
+
+#: ../inc/mosalon-customizer-setup.php:120
+msgid "Separator Subtitle (page)"
+msgstr ""
+
+#: ../inc/mosalon-customizer-setup.php:135
 msgid "Separator Background Image"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:125
+#: ../inc/mosalon-customizer-setup.php:147
 msgid "Image Opacity:"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:131
-#: ../inc/mosalon-customizer-setup.php:141
+#: ../inc/mosalon-customizer-setup.php:153
+#: ../inc/mosalon-customizer-setup.php:163
 msgid "Custom CSS"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:142
+#: ../inc/mosalon-customizer-setup.php:164
 msgid "Enter custom CSS styles"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:154
+#: ../inc/mosalon-customizer-setup.php:176
 msgid "Landing Page"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:155
+#: ../inc/mosalon-customizer-setup.php:177
 msgid ""
 "In order to use these options, you must first go to \"Static Front Page\", "
 "and select \"A static Page\". Under \"Front page\" select the page you want "
@@ -124,20 +143,20 @@ msgid ""
 "\". Go back here and set your options. "
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:161
+#: ../inc/mosalon-customizer-setup.php:183
 msgid "Checklist"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:166
+#: ../inc/mosalon-customizer-setup.php:188
 #: ../template-parts/section-top-cta.php:21
 msgid "LAUNCH YOUR NEW PRODUCT WEBSITE WITHIN MINUTES!"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:171
+#: ../inc/mosalon-customizer-setup.php:193
 msgid "Checklist Title"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:178
+#: ../inc/mosalon-customizer-setup.php:200
 #: ../template-parts/section-top-cta.php:24
 #, php-format
 msgid ""
@@ -145,457 +164,457 @@ msgid ""
 "want great looking theme? %sWell, welcome to Mosalon!"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:183
+#: ../inc/mosalon-customizer-setup.php:205
 msgid "Checklist items"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:184
+#: ../inc/mosalon-customizer-setup.php:206
 msgid "One per line"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:192
+#: ../inc/mosalon-customizer-setup.php:214
 msgid "Newsletter"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:197
+#: ../inc/mosalon-customizer-setup.php:219
 msgid "fake_api_key"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:202
+#: ../inc/mosalon-customizer-setup.php:224
 msgid "MailChimp Api Key"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:204
+#: ../inc/mosalon-customizer-setup.php:226
 #, php-format
 msgid "%sGrab it here.%s"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:209
+#: ../inc/mosalon-customizer-setup.php:231
 msgid "Please enter API key and refresh  the page."
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:218
+#: ../inc/mosalon-customizer-setup.php:240
 msgid "Please enter API key and refresh the page."
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:228
+#: ../inc/mosalon-customizer-setup.php:250
 msgid "Select List"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:234
+#: ../inc/mosalon-customizer-setup.php:256
 msgid "Sign Up Today - Free"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:239
-#: ../inc/mosalon-customizer-setup.php:621
-#: ../inc/mosalon-customizer-setup.php:684
-#: ../inc/mosalon-customizer-setup.php:790
+#: ../inc/mosalon-customizer-setup.php:261
+#: ../inc/mosalon-customizer-setup.php:643
+#: ../inc/mosalon-customizer-setup.php:706
+#: ../inc/mosalon-customizer-setup.php:812
 msgid "Title"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:245
-#: ../template-parts/section-top-cta.php:78
+#: ../inc/mosalon-customizer-setup.php:267
+#: ../template-parts/section-top-cta.php:83
 msgid "Get latest news directly to your inbox!"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:250
+#: ../inc/mosalon-customizer-setup.php:272
 msgid "Subscribe Text"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:256
-#: ../inc/mosalon-customizer-setup.php:638
-#: ../template-parts/section-top-cta.php:90
+#: ../inc/mosalon-customizer-setup.php:278
+#: ../inc/mosalon-customizer-setup.php:660
+#: ../template-parts/section-top-cta.php:95
 msgid "Sign Up Now"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:261
+#: ../inc/mosalon-customizer-setup.php:283
 msgid " Subscribe Button Text"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:273
+#: ../inc/mosalon-customizer-setup.php:295
 msgid "Double Opt-in?"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:274
+#: ../inc/mosalon-customizer-setup.php:296
 #, php-format
 msgid ""
 "Subscribers needs to confirm their email address. Read more about this %shere"
 "%s."
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:279
-#: ../template-parts/section-top-cta.php:70
+#: ../inc/mosalon-customizer-setup.php:301
+#: ../template-parts/section-top-cta.php:75
 msgid ""
 "You've been added to our sign-up list. We have sent an email, asking you to "
 "confirm the same."
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:284
+#: ../inc/mosalon-customizer-setup.php:306
 msgid "Success Message"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:285
+#: ../inc/mosalon-customizer-setup.php:307
 msgid ""
 "Message that will be shown when user is successfully subscribed to the list."
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:297
+#: ../inc/mosalon-customizer-setup.php:319
 msgid "Custom Form"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:298
+#: ../inc/mosalon-customizer-setup.php:320
 msgid ""
 "You don't have to use default form for subscription, you can add custom "
 "shortcode from a plugin here, or custom HTML, and theme will use it instead "
 "of default form. To use default form, leave this field blank."
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:310
+#: ../inc/mosalon-customizer-setup.php:332
 msgid "Custom Form Type"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:311
+#: ../inc/mosalon-customizer-setup.php:333
 msgid "Select what type of form you're using."
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:314
+#: ../inc/mosalon-customizer-setup.php:336
 msgid "Custom HTML & JS"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:315
+#: ../inc/mosalon-customizer-setup.php:337
 msgid "Shortcode"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:322
-#: ../inc/mosalon-customizer-setup.php:848
+#: ../inc/mosalon-customizer-setup.php:344
+#: ../inc/mosalon-customizer-setup.php:870
 msgid "Countdown"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:324
+#: ../inc/mosalon-customizer-setup.php:346
 msgid "Set countdown timer to any date."
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:333
+#: ../inc/mosalon-customizer-setup.php:355
 msgid "Display countdown?"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:346
+#: ../inc/mosalon-customizer-setup.php:368
 msgid "Select Month"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:349
+#: ../inc/mosalon-customizer-setup.php:371
 msgid "01-Jan"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:350
+#: ../inc/mosalon-customizer-setup.php:372
 msgid "02-Feb"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:351
+#: ../inc/mosalon-customizer-setup.php:373
 msgid "03-Mar"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:352
+#: ../inc/mosalon-customizer-setup.php:374
 msgid "04-Apr"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:353
+#: ../inc/mosalon-customizer-setup.php:375
 msgid "05-May"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:354
+#: ../inc/mosalon-customizer-setup.php:376
 msgid "06-Jun"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:355
+#: ../inc/mosalon-customizer-setup.php:377
 msgid "07-Jul"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:356
+#: ../inc/mosalon-customizer-setup.php:378
 msgid "08-Aug"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:357
+#: ../inc/mosalon-customizer-setup.php:379
 msgid "09-Sep"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:358
+#: ../inc/mosalon-customizer-setup.php:380
 msgid "10-Oct"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:359
+#: ../inc/mosalon-customizer-setup.php:381
 msgid "11-Nov"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:360
+#: ../inc/mosalon-customizer-setup.php:382
 msgid "12-Dec"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:370
+#: ../inc/mosalon-customizer-setup.php:392
 #: ../template-parts/section-countdown.php:35
 msgid "Day"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:381
+#: ../inc/mosalon-customizer-setup.php:403
 msgid "Year"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:392
+#: ../inc/mosalon-customizer-setup.php:414
 #: ../template-parts/section-countdown.php:38
 msgid "Hours"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:403
+#: ../inc/mosalon-customizer-setup.php:425
 #: ../template-parts/section-countdown.php:40
 msgid "Minutes"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:411
-#: ../inc/mosalon-customizer-setup.php:849
+#: ../inc/mosalon-customizer-setup.php:433
+#: ../inc/mosalon-customizer-setup.php:871
 msgid "Video"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:421
+#: ../inc/mosalon-customizer-setup.php:443
 msgid "Display video?"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:428
-#: ../inc/mosalon-customizer-setup.php:439
+#: ../inc/mosalon-customizer-setup.php:450
+#: ../inc/mosalon-customizer-setup.php:461
 #: ../template-parts/section-video.php:21
 msgid "Watch the video"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:433
+#: ../inc/mosalon-customizer-setup.php:455
 msgid "Video Title"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:444
+#: ../inc/mosalon-customizer-setup.php:466
 msgid "Video Subtitle"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:455
+#: ../inc/mosalon-customizer-setup.php:477
 msgid "Video Video"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:463
+#: ../inc/mosalon-customizer-setup.php:485
 msgid "Featured Items"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:473
+#: ../inc/mosalon-customizer-setup.php:495
 msgid "Display featured items?"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:480
+#: ../inc/mosalon-customizer-setup.php:502
 #: ../template-parts/section-features.php:17
 msgid "Important Feature Points"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:485
-#: ../inc/mosalon-customizer-setup.php:578
+#: ../inc/mosalon-customizer-setup.php:507
+#: ../inc/mosalon-customizer-setup.php:600
 msgid "Featured Title"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:491
+#: ../inc/mosalon-customizer-setup.php:513
 #: ../template-parts/section-features.php:18
 msgid "Thinking big when you are small"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:496
+#: ../inc/mosalon-customizer-setup.php:518
 msgid "Featured Subtitle"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:508
+#: ../inc/mosalon-customizer-setup.php:530
 msgid "Icon placement"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:511
+#: ../inc/mosalon-customizer-setup.php:533
 msgid "Left"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:512
+#: ../inc/mosalon-customizer-setup.php:534
 msgid "Centered"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:523
+#: ../inc/mosalon-customizer-setup.php:545
 msgid "Featured Items Columns"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:524
+#: ../inc/mosalon-customizer-setup.php:546
 msgid "Number of columns per row"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:555
+#: ../inc/mosalon-customizer-setup.php:577
 msgid "Font Icon"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:567
+#: ../inc/mosalon-customizer-setup.php:589
 msgid "Font Size"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:573
+#: ../inc/mosalon-customizer-setup.php:595
 #: ../template-parts/section-features.php:60
 msgid "Very Important Feature Point"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:584
+#: ../inc/mosalon-customizer-setup.php:606
 #: ../template-parts/section-features.php:61
 msgid ""
 "Lorem ipsum sit amet, dolor and easy way to get more organic search without "
 "unnecessary bells and whistles."
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:589
+#: ../inc/mosalon-customizer-setup.php:611
 msgid "Featured Text"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:599
+#: ../inc/mosalon-customizer-setup.php:621
 msgid "Call To Action Wide"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:609
+#: ../inc/mosalon-customizer-setup.php:631
 msgid "Display CTA Wide?"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:616
+#: ../inc/mosalon-customizer-setup.php:638
 #: ../template-parts/section-cta-wide.php:17
 msgid "And much more features! Buy product now!"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:627
+#: ../inc/mosalon-customizer-setup.php:649
 #: ../template-parts/section-cta-wide.php:18
 msgid "If you like this product don't forget to rate it!"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:632
-#: ../inc/mosalon-customizer-setup.php:801
+#: ../inc/mosalon-customizer-setup.php:654
+#: ../inc/mosalon-customizer-setup.php:823
 msgid "Text"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:643
-#: ../inc/mosalon-customizer-setup.php:812
+#: ../inc/mosalon-customizer-setup.php:665
+#: ../inc/mosalon-customizer-setup.php:834
 msgid "Button Text"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:654
-#: ../inc/mosalon-customizer-setup.php:823
+#: ../inc/mosalon-customizer-setup.php:676
+#: ../inc/mosalon-customizer-setup.php:845
 msgid "Button URL"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:662
+#: ../inc/mosalon-customizer-setup.php:684
 msgid "Latest News"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:672
+#: ../inc/mosalon-customizer-setup.php:694
 msgid "Display latest posts?"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:679
-#: ../inc/mosalon-customizer-setup.php:852
+#: ../inc/mosalon-customizer-setup.php:701
+#: ../inc/mosalon-customizer-setup.php:874
 #: ../template-parts/section-latest-posts.php:22
 msgid "Latest Posts"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:690
+#: ../inc/mosalon-customizer-setup.php:712
 #: ../template-parts/section-latest-posts.php:23
 msgid "Freshest news from our blog"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:695
+#: ../inc/mosalon-customizer-setup.php:717
 msgid "Subtitle"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:706
+#: ../inc/mosalon-customizer-setup.php:728
 msgid "Number of posts to show"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:717
+#: ../inc/mosalon-customizer-setup.php:739
 msgid "Select Category"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:718
+#: ../inc/mosalon-customizer-setup.php:740
 msgid ""
 "Choose specific category to show posts from, or leave at \"All Categories\" "
 "to show all latest posts from all categories."
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:730
+#: ../inc/mosalon-customizer-setup.php:752
 msgid "Display post default image?"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:742
+#: ../inc/mosalon-customizer-setup.php:764
 msgid "Number of words to show:"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:754
+#: ../inc/mosalon-customizer-setup.php:776
 msgid "Columns Number"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:755
+#: ../inc/mosalon-customizer-setup.php:777
 msgid "In how many columns to display posts?"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:768
+#: ../inc/mosalon-customizer-setup.php:790
 msgid "Call To Action Centered"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:778
+#: ../inc/mosalon-customizer-setup.php:800
 msgid "Display call to action centered?"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:785
+#: ../inc/mosalon-customizer-setup.php:807
 #: ../template-parts/section-cta-centered.php:17
 msgid "Want to get a Free Course Preview?"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:796
+#: ../inc/mosalon-customizer-setup.php:818
 #: ../template-parts/section-cta-centered.php:18
 msgid ""
 "Offer a course preview to students and let them peak at the awesome "
 "resources!"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:807
+#: ../inc/mosalon-customizer-setup.php:829
 #: ../template-parts/section-cta-centered.php:19
 msgid "Give me the free case study"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:831
+#: ../inc/mosalon-customizer-setup.php:853
 msgid "Section Ordering"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:842
+#: ../inc/mosalon-customizer-setup.php:864
 msgid "Display subsidiary sidebar on landing page?"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:847
+#: ../inc/mosalon-customizer-setup.php:869
 msgid "Checklist & Newsletter"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:850
+#: ../inc/mosalon-customizer-setup.php:872
 msgid "Features"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:851
+#: ../inc/mosalon-customizer-setup.php:873
 msgid "Call To Action (Wide)"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:853
+#: ../inc/mosalon-customizer-setup.php:875
 msgid "Call To Action (Centered)"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:869
+#: ../inc/mosalon-customizer-setup.php:891
 msgid "Slot"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:934
+#: ../inc/mosalon-customizer-setup.php:958
 msgid "Support Forum"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:935
+#: ../inc/mosalon-customizer-setup.php:959
 msgid "Rate Us!"
 msgstr ""
 
-#: ../inc/mosalon-customizer-setup.php:1014
+#: ../inc/mosalon-customizer-setup.php:1038
 msgid "All Categories"
 msgstr ""
 
@@ -636,27 +655,27 @@ msgstr ""
 msgid "Seconds"
 msgstr ""
 
-#: ../template-parts/section-top-cta.php:71
+#: ../template-parts/section-top-cta.php:76
 msgid "There was an error. Please try again."
 msgstr ""
 
-#: ../template-parts/section-top-cta.php:72
+#: ../template-parts/section-top-cta.php:77
 msgid "That does not look like a valid email."
 msgstr ""
 
-#: ../template-parts/section-top-cta.php:77
+#: ../template-parts/section-top-cta.php:82
 msgid "Sign Up Today - Free!"
 msgstr ""
 
-#: ../template-parts/section-top-cta.php:82
+#: ../template-parts/section-top-cta.php:87
 msgid "First Name"
 msgstr ""
 
-#: ../template-parts/section-top-cta.php:85
+#: ../template-parts/section-top-cta.php:90
 msgid "Last Name"
 msgstr ""
 
-#: ../template-parts/section-top-cta.php:88
+#: ../template-parts/section-top-cta.php:93
 msgid "Email *"
 msgstr ""
 
@@ -682,23 +701,23 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: ../misc/loop-meta.php:16
+#: ../misc/loop-meta.php:20
 msgid "Nothing Found"
 msgstr ""
 
-#: ../misc/loop-meta.php:17
+#: ../misc/loop-meta.php:21
 msgid "Apologies, but no entries were found."
 msgstr ""
 
-#: ../misc/loop-meta.php:26
+#: ../misc/loop-meta.php:30
 msgid "You are browsing the category"
 msgstr ""
 
-#: ../misc/loop-meta.php:31
+#: ../misc/loop-meta.php:35
 msgid "All posts by this author page"
 msgstr ""
 
-#: ../misc/loop-meta.php:34
+#: ../misc/loop-meta.php:38
 msgid "You are browsing posts tagged with"
 msgstr ""
 
@@ -717,6 +736,11 @@ msgstr ""
 #: ../library/inc/functions-head.php:140
 #, php-format
 msgid "%1$s Page %2$s"
+msgstr ""
+
+#: ../content/page.php:24
+#, php-format
+msgid "Edit<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
 #: ../content/attachment-image.php:55
