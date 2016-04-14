@@ -7,6 +7,10 @@
 * content/page.php template for pages (without author, date, comments number).
 * Customizer options for separator title and subtitle on pages.
 
+### Fixed
+
+* Escaped variables in misc/loop-meta.php.
+
 ## [1.1.2] - 2016-04-08
 
 ### Fixed
