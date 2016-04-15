@@ -43,4 +43,6 @@ function mosalon_theme_setup() {
 	/* Add support for Woocommerce. */
 	add_theme_support( 'woocommerce' );
 
+	/* Add support for custom background. */
+	add_theme_support( 'custom-background', array( 'default-color' => 'ffffff' ) );
 }
