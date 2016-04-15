@@ -1,5 +1,8 @@
 jQuery( document ).ready( function($) {
 
+	/* ====== BODY CLASS ====== */
+	$( 'body' ).addClass( 'js' );
+
 	/*==== RESPONSIVE PRIMARY MENU SETUP ====*/
 	if ( $( '#menu-primary-items' ).length ) {
 		$('#toggle-primary-menu').click(function(){
