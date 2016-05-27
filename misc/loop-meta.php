@@ -8,7 +8,7 @@
 			<div class="loop-img"></div>
 		<?php endif; ?>
 
-		<?php if ( is_front_page() || is_page() ) :
+		<?php if ( is_front_page() || is_page() || is_woocommerce() ) :
 			$title = get_theme_mod( 'loop_title_page', __( 'Company Info', 'mosalon' ) );
 			$desc  = get_theme_mod( 'loop_subtitle_page', __( 'Company slogan', 'mosalon' ) );
 
@@ -46,7 +46,7 @@
 
 		<?php if ( $desc ) : ?>
 			<div <?php hybrid_attr( 'loop-description' ); ?>>
-				<p><?php echo $desc; ?></p>
+				<p><?php echo esc_html( $desc ); ?></p>
 			</div><!-- .loop-description -->
 		<?php endif; ?>
 
