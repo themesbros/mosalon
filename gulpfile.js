@@ -14,7 +14,7 @@ var gulp    	= require( 'gulp' ),
 	pngquant    = require( 'imagemin-pngquant' );
 
 gulp.task( 'styles', function(){
-	gulp.src( ['css/*.css', '!css/*.min.css', 'style.css'], { base: '.' } )
+	gulp.src( ['!css/*.min.css', 'style.css', 'rtl.css'], { base: '.' } )
 		.pipe( cssmin() )
 		.pipe( rename( { suffix: '.min' } ) )
 		.pipe( gulp.dest( './' ) )
@@ -23,6 +23,7 @@ gulp.task( 'styles', function(){
 gulp.task( 'rtlcss', function() {
 	gulp.src( ['style.css'] )
 		.pipe( rtlcss() )
+		.pipe( rename( { suffix: '-rtl' } ) )
 		.pipe( gulp.dest( './' ) )
 });
 
@@ -53,8 +54,8 @@ gulp.task( 'pot', function () {
     gulp.src('**/*.php')
         .pipe( sort() )
         .pipe( wppot( {
-            domain: 'starter',
-            destFile:'starter.pot',
+            domain: 'mosalon',
+            destFile:'mosalon.pot',
             bugReport: 'http://www.themesbros.com/',
             team: 'TB Team <support@themebros.com>'
         } ))
