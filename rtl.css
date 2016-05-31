@@ -2,7 +2,7 @@
  * Theme Name: 	Mosalon
  * Theme URI: 	http://www.themesbros.com/mosalon-landing-page-wordpress-theme/
  * Description: Mosalon is a multipurpose responsive landing page theme, designed to help you effectively launch your new product, service, website... Theme is built on the rock-solid Hybrid Core theme framework, with search-engine optimization (SEO) in mind by utilizing the most current HTML5 conventions and Schema.org microdata. It come's packed with ton's of options, multiple layouts, and more. View demo here: http://www.themesbros.com/demo/mosalon/.
- * Version: 	1.1.5
+ * Version: 	1.1.6
  * Author: 		ThemesBros.com
  * Author URI: 	http://www.themesbros.com
  * Tags:        green, white, one-column, two-columns, responsive-layout, left-sidebar, right-sidebar, featured-images, custom-menu, threaded-comments, translation-ready, theme-options, sticky-post, rtl-language-support, custom-background
@@ -376,8 +376,8 @@ ol {
 
 li > ul,
 li > ol {
-	margin-bottom: 0;
 	margin-right: 1.5em;
+	margin-bottom: 0;
 }
 
 dt {
@@ -1503,8 +1503,8 @@ a:active {
 	display: table-cell;
 	overflow: hidden;
 	padding-top: 75px;
-	padding-left: 13%;
 	padding-bottom: 75px;
+	padding-left: 13%;
 	width: 70%;
 }
 
@@ -1601,8 +1601,8 @@ a:active {
 	margin-bottom: 0px;
 	padding-bottom: 12px;
 	width: 25%;
-	border-left: 1px solid #d2d2d2;
 	border-bottom: 1px solid #d2d2d2;
+	border-left: 1px solid #d2d2d2;
 	color: #000000;
 	font-family: 'open_sansbold', sans-serif;
 }
