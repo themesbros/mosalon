@@ -8,7 +8,11 @@
 			<div class="loop-img"></div>
 		<?php endif; ?>
 
-		<?php if ( is_front_page() || is_page() || is_woocommerce() ) :
+		<?php if ( is_front_page() || is_page() ) :
+			$title = get_theme_mod( 'loop_title_page', __( 'Company Info', 'mosalon' ) );
+			$desc  = get_theme_mod( 'loop_subtitle_page', __( 'Company slogan', 'mosalon' ) );
+
+		elseif ( function_exists( "is_woocommerce" ) && is_woocommerce() ) :
 			$title = get_theme_mod( 'loop_title_page', __( 'Company Info', 'mosalon' ) );
 			$desc  = get_theme_mod( 'loop_subtitle_page', __( 'Company slogan', 'mosalon' ) );
 
